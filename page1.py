@@ -898,7 +898,7 @@ class MyClass:
     def schedule_tasks(self):
         while True:
             self.execute_methods()
-            time.sleep(600)  # 600 seconds = 10 minutes
+            time.sleep(1200)  # 600 seconds = 10 minutes
        
 
 if __name__ == "__main__":
