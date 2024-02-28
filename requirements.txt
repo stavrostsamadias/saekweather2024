@@ -15,6 +15,6 @@ streamlit-folium
 openpyxl
 requests
 joblib
-subprocess
+
 
 
