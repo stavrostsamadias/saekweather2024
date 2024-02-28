@@ -293,7 +293,7 @@ from sklearn.linear_model import LinearRegression
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 import joblib
-import threading
+import multiprocessing
 
 # -----------------------------------get methot for API sensor-----------------------------------------
 
