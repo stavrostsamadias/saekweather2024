@@ -903,6 +903,6 @@ class MyClass:
 
 if __name__ == "__main__":
     my_instance = MyClass()
-     threading.Thread(target=my_instance.schedule_tasks).start()
-
+    process = multiprocessing.Process(target=my_instance.schedule_tasks)
+    process.start()
 
