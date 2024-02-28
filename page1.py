@@ -293,6 +293,7 @@ from sklearn.linear_model import LinearRegression
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 import joblib
+import threading
 
 # -----------------------------------get methot for API sensor-----------------------------------------
 
@@ -895,19 +896,13 @@ class MyClass:
         self.ai()
 
     def schedule_tasks(self):
-        # Χρονοπρογραμματισμός εκτέλεσης των μεθόδων κάθε 10 λεπτά
-        schedule.every(1).minutes.do(self.execute_methods)
-
-        # Άλλες πιθανές εργασίες χρονοπρογραμματισμού μπορούν να προστεθούν εδώ
-
-        # Επανάληψη του χρονοπρογράμματος
         while True:
-            schedule.run_pending()
-            time.sleep(1)
-
+            self.execute_methods()
+            time.sleep(600)  # 600 seconds = 10 minutes
+       
 
 if __name__ == "__main__":
     my_instance = MyClass()
-    my_instance.schedule_tasks()
+     threading.Thread(target=my_instance.schedule_tasks).start()
 
 
